@@ -10,15 +10,16 @@ Esse é o projeto de Banco de Dados de um e-commerce que vende vários tipos de 
 ### Como usar
 
 (PT-BR)
-* Cada um dos arquivos contidos nesse diretório são uma parte do script e estão descritos abaixo:
-  - [`script_criacaoDB.sql`](https://github.com/jotapesp/ecommerce-database) - execute esse _script_ em um servidor MySQL para criar o Banco de Dados chamado `ecommerce_desafio` populado com as tabelas que serão descritas mais adiante.
-  - [`script_alimentacao.sql`](https://github.com/jotapesp/ecommerce-database) - execute esse _script_ para popular o Banco de Dados com dados fictícios afim de testá-lo.
-  - [`script_queries.sql`](https://github.com/jotapesp/ecommerce-database) - execute esse _script_ para extrair informações do Banco de Dados com a finalidade de testá-lo. As informações extraídas pelas queries contidas nesse _script_ são descritas mais adiante.
+* Use o comando `git clone https://github.com/jotapesp/ecommerce-database.git` em um terminal/linha de comando para clonar os arquivos desse diretório e execute os scripts.
+* Cada um dos arquivos contidos nesse diretório são uma parte do script e estão descritos abaixo. Execute cada _script_ mySQL conforme estão ordenados abaixo:
+  - [`script_criacaoDB.sql`](https://github.com/jotapesp/ecommerce-database/blob/main/script_criacaoDB.sql) - execute esse _script_ em um servidor MySQL para criar o Banco de Dados chamado `ecommerce_desafio` populado com as tabelas que serão descritas mais adiante.
+  - [`script_alimentacao.sql`](https://github.com/jotapesp/ecommerce-database/blob/main/script_alimentacao.sql) - execute esse _script_ para popular o Banco de Dados com dados fictícios afim de testá-lo.
+  - [`script_queries.sql`](https://github.com/jotapesp/ecommerce-database/blob/main/script_queries.sql) - execute esse _script_ para extrair informações do Banco de Dados com a finalidade de testá-lo. As informações extraídas pelas queries contidas nesse _script_ são descritas mais adiante.
 
 ### Descrição do Banco de Dados
 
-* [`modelo_eer.mwb`](https://github.com/jotapesp/ecommerce-database) - Esse arquivo contido no repositório contem o modelo lógico completo do banco de dados, a imagem abaixo é um screenshot desse modelo:
-[![Modelo Lógico](https://i.imgur.com/Fz7Ed8T.png)](https://github.com/jotapesp/ecommerce-database)
+* [`modelo_eer.mwb`](https://github.com/jotapesp/ecommerce-database/blob/main/modelo_eer.mwb) - Esse arquivo contido no repositório contem o modelo lógico completo do banco de dados, a imagem abaixo é um screenshot desse modelo:
+[![Modelo Lógico](https://i.imgur.com/Fz7Ed8T.png)](https://github.com/jotapesp/ecommerce-database/blob/main/mod_logico.png)
 
   - Cliente: tabela com os dados dos clientes, que podem ser pessoas físicas ou jurídicas. No caso, uma exclui a outra, ou seja, se o cliente for registrado como pessoa física, a tabela não pode conter informação sobre seu CNPJ, por exemplo. A identidade de gênero do usuário é armazenada em um atributo do tipo ENUM e as opções são 'M', para masculino, 'F', para feminino e 'N' caso o usuário se identifique como não-binário, no caso do cliente cadastrado for uma empresa, a opção apropriada é 'N/A'. O atributo endereço é composto por alguns atributos separados no _script_, dessa forma podendo separar informações como nome da rua, nome do bairro, cidade e estado onde o usuário se localiza. O estado é dado como um atributo do tipo ENUM e as opções de escolha são todos os estados do território nacional, includindo o Distrito Federal. Esse modelo de endereço é repetido em todas as tabelas que armazenam essa informação.
 
@@ -46,7 +47,7 @@ Esse é o projeto de Banco de Dados de um e-commerce que vende vários tipos de 
 
 ### Recuperação dos dados através das _Queries_ pré-definidas em _script_
 
-* O _script_ [`script_queries.sql`](https://github.com/jotapesp/ecommerce-database) foi criado com algumas _queries_ que retornam dados armazenados, e essas são:
+* O _script_ [`script_queries.sql`](https://github.com/jotapesp/ecommerce-database/blob/main/script_queries.sql) foi criado com algumas _queries_ que retornam dados armazenados, e essas são:
   - 1. Recupera informações sobre os pedidos dos clientes, exibindo CPF ou CNPJ do cliente (dependendo se for PF ou PJ), a forma de pagamento utilizada para aquele pedido, caso tenha sido cartão, quais cartões foram utilizados (últimos 4 digitos), o valor pago pelo frete e a situação do pedido. Os dados saem ordenados por valor total do pedido, de forma decrescente.
 
   - 2.  O total já gasto por cada cliente até o momento (excluindo frete).
